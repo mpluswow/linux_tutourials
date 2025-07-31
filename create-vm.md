@@ -1,5 +1,3 @@
-# Kali Linux VM Setup on KVM
-
 ## 1. Install KVM & Related Packages
 
 Update package lists:
