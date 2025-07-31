@@ -18,7 +18,7 @@ Enable and start the libvirt service:
 sudo systemctl enable --now libvirtd
 ```
 
----
+
 
 ## 2. Download Kali Linux ISO to VPS
 
@@ -28,7 +28,8 @@ Download the Kali Linux ISO directly to the libvirt directory:
 wget https://cdimage.kali.org/kali-rolling/amd64/iso/kali-linux-2025.1-installer-amd64.iso -O /var/lib/libvirt/kali.iso
 ```
 
----
+
+
 
 ## 3. Create the Kali VM with VNC Graphics
 
@@ -47,7 +48,8 @@ sudo virt-install \
 --noautoconsole
 ```
 
----
+
+
 
 ## 4. Manage VM Lifecycle
 
