@@ -33,7 +33,7 @@ wget https://cdimage.kali.org/kali-rolling/amd64/iso/kali-linux-2025.1-installer
 
 ## 3. Create the Kali VM with VNC Graphics
 
-Create a VM named `kali-vm` with 2GB RAM, 2 CPUs, 20GB disk, using the Kali ISO and VNC for GUI access:
+Create a VM named `kali-vm` with 2GB RAM, 2 CPUs, 20GB disk, using the Kali ISO:
 
 ```bash
 sudo virt-install \
@@ -44,7 +44,7 @@ sudo virt-install \
 --os-variant=debian10 \
 --cdrom=/var/lib/libvirt/kali.iso \
 --network network=default \
---graphics vnc,listen=0.0.0.0 \
+--graphics none \
 --noautoconsole
 ```
 
@@ -72,3 +72,32 @@ sudo virt-install \
   ```
 
 
+## How to Access Your VM CLI
+
+### Option 1: Use `virsh console`
+
+You can connect directly to the VM’s serial console via:
+
+```bash
+sudo virsh console kali-vm
+```
+
+To exit the console, press:
+
+```
+Ctrl + ] 
+```
+
+Make sure the VM’s serial console is enabled (usually it is by default on most Linux guests).
+
+
+### Option 2: SSH into the VM
+
+* After Kali installation, configure networking so the VM gets an IP address on your network.
+* From your local machine, SSH into that IP:
+
+```bash
+ssh user@vm-ip-address
+```
+
+This is typically the most convenient and flexible way to work with a headless VM.
